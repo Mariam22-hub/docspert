@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Funds</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+    <link href="{% static 'accounts/css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Transfer Funds</h1>
+        {% if error_message %}
+            <div class="alert alert-danger" role="alert">
+                {{ error_message }}
+            </div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.from_account.label_tag }} {{ form.from_account }}
+            </div>
+            <div class="form-group">
+                {{ form.to_account.label_tag }} {{ form.to_account }}
+            </div>
+            <div class="form-group">
+                {{ form.amount.label_tag }} {{ form.amount }}
+            </div>
+            <button type="submit" class="btn btn-primary">Transfer</button>
+        </form>
+        <a href="{% url 'list_accounts' %}" class="btn btn-secondary mt-3">Back to Account List</a>
+    </div>
+</body>
+</html>
