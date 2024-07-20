@@ -74,13 +74,14 @@ TEMPLATES = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'task',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
+        'NAME': 'your_db_name',
+        'USER': 'your_db_user',
+        'PASSWORD': 'your_db_password',
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
+
 
 WSGI_APPLICATION = 'fund_transfer.wsgi.application'
 
